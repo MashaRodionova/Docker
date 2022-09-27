@@ -1,55 +1,19 @@
-Traceback (most recent call last):
-File "urllib3/connectionpool.py", line 670, in urlopen
-File "urllib3/connectionpool.py", line 392, in _make_request
-File "http/client.py", line 1255, in request
-File "http/client.py", line 1301, in _send_request
-File "http/client.py", line 1250, in endheaders
-File "http/client.py", line 1010, in _send_output
-File "http/client.py", line 950, in send
-File "docker/transport/unixconn.py", line 43, in connect
-FileNotFoundError: [Errno 2] No such file or directory
+masharodionova@MashaRodionova Docker % docker-compose down
+[+] Running 2/1
+⠿ Container docker-postgres-1  Removed                                                                                                                                0.2s
+⠿ Network docker_default       Removed                                                                                                                                0.1s
+masharodionova@MashaRodionova Docker % docker-compose up
+[+] Running 2/2
+⠿ Network docker_default       Created                                                                                                                                0.0s
+⠿ Container docker-postgres-1  Created                                                                                                                                0.0s
+Attaching to docker-postgres-1
+docker-postgres-1  |
+docker-postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+docker-postgres-1  |
+docker-postgres-1  | 2022-09-27 12:48:11.382 UTC [1] LOG:  starting PostgreSQL 12.12 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 11.2.1_git20220219) 11.2.1 20220219, 64-bit
+docker-postgres-1  | 2022-09-27 12:48:11.383 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+docker-postgres-1  | 2022-09-27 12:48:11.383 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+docker-postgres-1  | 2022-09-27 12:48:11.386 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+docker-postgres-1  | 2022-09-27 12:48:11.413 UTC [22] LOG:  database system was shut down at 2022-09-27 12:47:45 UTC
+docker-postgres-1  | 2022-09-27 12:48:11.432 UTC [1] LOG:  database system is ready to accept connections
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-File "requests/adapters.py", line 439, in send
-File "urllib3/connectionpool.py", line 726, in urlopen
-File "urllib3/util/retry.py", line 410, in increment
-File "urllib3/packages/six.py", line 734, in reraise
-File "urllib3/connectionpool.py", line 670, in urlopen
-File "urllib3/connectionpool.py", line 392, in _make_request
-File "http/client.py", line 1255, in request
-File "http/client.py", line 1301, in _send_request
-File "http/client.py", line 1250, in endheaders
-File "http/client.py", line 1010, in _send_output
-File "http/client.py", line 950, in send
-File "docker/transport/unixconn.py", line 43, in connect
-urllib3.exceptions.ProtocolError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-File "docker/api/client.py", line 214, in _retrieve_server_version
-File "docker/api/daemon.py", line 181, in version
-File "docker/utils/decorators.py", line 46, in inner
-File "docker/api/client.py", line 237, in _get
-File "requests/sessions.py", line 543, in get
-File "requests/sessions.py", line 530, in request
-File "requests/sessions.py", line 643, in send
-File "requests/adapters.py", line 498, in send
-requests.exceptions.ConnectionError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-File "docker-compose", line 3, in <module>
-File "compose/cli/main.py", line 81, in main
-File "compose/cli/main.py", line 200, in perform_command
-File "compose/cli/command.py", line 60, in project_from_options
-File "compose/cli/command.py", line 152, in get_project
-File "compose/cli/docker_client.py", line 41, in get_client
-File "compose/cli/docker_client.py", line 170, in docker_client
-File "docker/api/client.py", line 197, in __init__
-File "docker/api/client.py", line 221, in _retrieve_server_version
-docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
-[1097] Failed to execute script docker-compose
